@@ -104,11 +104,11 @@ scene.add(pointLight1);
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.03);
 scene.add(ambientLight);
 
-const particleLight = new THREE.Mesh(
-    new THREE.SphereGeometry( .1, 8, 8 ),
-    new THREE.MeshStandardMaterial( {
-        map: matcapTexture} )
-);
+// const particleLight = new THREE.Mesh(
+//     new THREE.SphereGeometry( .1, 8, 8 ),
+//     new THREE.MeshStandardMaterial( {
+//         map: matcapTexture} )
+// );
 // scene.add( particleLight );
 
 //particleLight.add( new THREE.PointLight( 0xffffff, 1, 20, 2) );
@@ -118,19 +118,19 @@ const particleLight = new THREE.Mesh(
     PLANETS
 **********************************************************************************/
 
-const planet_geo = new THREE.TorusGeometry(9, 3, 16, 100); // TorusGeometry(radius : Float, tube : Float, radialSegments : Integer, tubularSegments : Integer, arc : Float)
-const planet_mat = new THREE.MeshStandardMaterial({
-                    map: planetColor,
-                    normalMap: planetNormal,
-                    metalnessMap: planetAO,
-                    displacementMap: planetHeight,
-                    displacementScale: 0.1,
-                    roughnessMap: planetRough
-                  });
-// const material_simple = new THREE.MeshStandardMaterial({color: 0xFF6347});
-const torus = new THREE.Mesh(planet_geo, planet_mat);
-torus.position.set(30, 20, -100); // move the torus a bit backside, so that we can have better scene view
-//scene.add(torus);
+// const planet_geo = new THREE.TorusGeometry(9, 3, 16, 100); // TorusGeometry(radius : Float, tube : Float, radialSegments : Integer, tubularSegments : Integer, arc : Float)
+// const planet_mat = new THREE.MeshStandardMaterial({
+//                     map: planetColor,
+//                     normalMap: planetNormal,
+//                     metalnessMap: planetAO,
+//                     displacementMap: planetHeight,
+//                     displacementScale: 0.1,
+//                     roughnessMap: planetRough
+//                   });
+// // const material_simple = new THREE.MeshStandardMaterial({color: 0xFF6347});
+// const torus = new THREE.Mesh(planet_geo, planet_mat);
+// torus.position.set(30, 20, -100); // move the torus a bit backside, so that we can have better scene view
+// //scene.add(torus);
 
 // EARTH
 const earth = new THREE.Mesh(
@@ -181,45 +181,6 @@ const jupiter = new THREE.Mesh(
 jupiter.position.z = 200;
 scene.add(jupiter);
 
-// function moveCamera() {
-//   const t = document.body.getBoundingClientRect().top;
-
-//   camera.position.z = t * -0.01;
-//   camera.position.x = t * -0.0002;
-//   camera.rotation.y = t * -0.0002;
-
-// }
-// document.body.onscroll = moveCamera;
-// moveCamera();
-
-
-// /**
-//  * Scroll
-//  */
-// let scrollY = window.scrollY
-// let currentSection = 0
-
-// window.addEventListener('scroll', () =>
-// {
-//     scrollY = window.scrollY
-//     const newSection = Math.round(scrollY / sizes.height)
-
-//     if(newSection != currentSection)
-//     {
-//         currentSection = newSection
-
-//         gsap.to(
-//             sectionMeshes[currentSection].rotation,
-//             {
-//                 duration: 1.5,
-//                 ease: 'power2.inOut',
-//                 x: '+=6',
-//                 y: '+=3',
-//                 z: '+=1.5'
-//             }
-//         )
-//     }
-// })
 
 /**********************************************************************************
     PARTICLES
@@ -317,19 +278,6 @@ let targetY = 0;
 
 const windowHalfX = window.innerWidth / 2;
 const windowHalfY = window.innerHeight / 2;
-
-// function onDocumentMouseMove(event) {
-//   mouseX = (event.clientX - windowHalfX);
-//   mouseY = (event.clientY - windowHalfY);
-// }
-
-// function onPointerMove( event ) {
-
-//  	// calculate pointer position in normalized device coordinates
-//  	// (-1 to +1) for both components
-// 	pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-// 	pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-// }
 
 document.addEventListener('mousemove', (event) => {
     pointer.x = (event.clientX - windowHalfX);
